@@ -31,7 +31,11 @@
     </tbody>
 </table>
 
-<button asp-action="Create" class="btn btn-dark float-right">Add New Book</button>
+@if (User.Identity.IsAuthenticated)
+{
+    <a asp-action="Create" class="btn btn-dark float-right">Add New Book</a>
+}
+
 
 
 

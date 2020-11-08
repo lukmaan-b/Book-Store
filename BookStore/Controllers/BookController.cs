@@ -22,5 +22,24 @@ namespace BookStore.Controllers
             IEnumerable<Book> books = _db.Books;
             return View(books);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Book book)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(book);
+            }
+            _db.Books.Add(book);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
