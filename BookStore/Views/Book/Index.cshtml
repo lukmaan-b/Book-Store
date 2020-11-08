@@ -1,3 +1,37 @@
 ﻿
-@model BookStore.Models.Book
+@model IEnumerable<BookStore.Models.Book>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Book Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() > 0)
+        {
+            foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.BookName</td>
+                    <td>@book.Author</td>
+                    <td>@book.Stock</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>No Books Currently Available</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button asp-action="Create" class="btn btn-dark float-right">Add New Book</button>
+
+
 
