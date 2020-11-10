@@ -1,0 +1,21 @@
+﻿@model SignupViewModel
+
+<h1>Signup</h1>
+
+<div class="alert alert-info">
+    If you have already have an account please <a asp-action="Signin">sign in</a>
+</div>
+
+<form method="post" asp-controller="Identity" asp-action="Signup" class="col-4">
+    @Html.ValidationSummary()
+    <div class="form-group ">
+        <label asp-for="UserName">Username:</label>
+        <input  asp-for="UserName" class="form-control" />
+    </div>
+    <div class="form-group ">
+        <label asp-for="Password">Password:</label>
+        <input  asp-for="Password" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Signup</button>
+</form>
+

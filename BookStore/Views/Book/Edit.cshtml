@@ -1,7 +1,8 @@
 ﻿@model BookStore.Models.Book
 
-    <h1>Create Form</h1>
-<form method="post" asp-action="Create">
+    <h1>Edit Form</h1>
+<form method="post" asp-action="Edit">
+    <input asp-for="@Model.Id" hidden />
     <div class="form-group">
         <label asp-for="@Model.BookName">Book Name</label>
         <input class="form-control" asp-for="@Model.BookName">
@@ -18,5 +19,5 @@
         <span asp-validation-for="@Model.Stock" class="text-danger"></span>
     </div>
 
-    <button class="btn btn-primary" type="submit">Add Book</button>
+    <button class="btn btn-primary" type="submit">Update Book</button>
 </form>
